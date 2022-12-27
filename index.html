@@ -49,7 +49,7 @@
         <div>
             <h3>1.What is creation phase and execution phase?</h3><br>
             <p>compiler runs the entire code for 2 times before actually executing the code and generates GEC(Global Execution context) inside this we have creation phase and execution phase.<br>Creation Phase:<br>
-            <li>In the first run it picks all the function declarations and stores them in memory with the reference.</li><br><li>In Second run,it picks all the variables and assign them as undefined.</li><br>Execution Phase:<br>
+            <li>In the first run it picks all the function declarations and stores them in memory with the reference.</li><br><li>In Second run,it picks all the variables and assign them as undefined.</li><br>Execution Phase:
             <li>Variables are asssigned with their values given the code.</li><br><li>Functions gets executed.</li> </p>
         </div>
         <div>
@@ -118,19 +118,44 @@
         </div>
         <div>
             <h3>5.Explain prototypes</h3>
-            <p></p>
-            <pre></pre>
+            <p>In JS every object and function has a built in property called prototype.Prototype are the mechanism by which javascript objects inherit features from one another.The prototype itself an object and it will have its own prototype called prototype chain.The chain ends when we reach a prototype has null for its own prototype.In javascript Prototype property allows you to add new properties to object constructor.
+            </p>
+            <pre>
+                function Person(name,age){
+                    this.name = name,
+                    this.age = age
+                }
+                Person.prototype.nationality="Indian";
+                const peson1 = new Person("rama", "23")
+                console.log("name:"+ peson1.name,"age:"+peson1.age,peson1.nationality);
+            </pre>
         </div>
         <div>
             <h3>6.What is prototype chain</h3>
-            <p></p>
-            <pre></pre>
+            <p>The Prototype object has prototype of its own and so on until it reaches to null as its prototype.So,linking this with another is called Prototype Chain.Null has no prototype and it acts as final link in this prototype chain.</p>
+            <pre>
+                let fruits=["apple","mango","orange"]console.log(fruits);
+            </pre>
         </div>
         <div>
             <h3>7.Give an example of inheritance using function constructor</h3>
-            <p></p>
-            <pre></pre>
+            <pre>
+                function employee(name,age,place){
+                    this.name=name,
+                    this.age=age,
+                    this.place=place
+                }
+                function employee2(gender){
+                    employee.call(this.name,this.age,this.place)
+                    this.gender=gender
+                }
+                let emp = new employee ("Siva",23,"Hyd")
+                let emp2= new employee2("syam",24,"BGLR","M")
+                console.log(emp);
+                console.log(emp2);
+            </pre>
         </div>
     </div>
+    <script src="./main.js"></script>
 </body>
 </html>
